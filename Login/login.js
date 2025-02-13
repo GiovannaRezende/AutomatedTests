@@ -13,7 +13,7 @@ export async function Login() {
         let enter = await driver.findElement(By.className('styles_button__TxdOK'));
 
         await cnpj.sendKeys('60.830.039/0001-68');
-        await user.sendKeys('giovanna.rezende'); 
+        await user.sendKeys('giovanna.rezende');
         await password.sendKeys('rezende@p0w2i8!');
         await enter.click();
 
