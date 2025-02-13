@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "dependencies": {
+    "selenium-webdriver": "^4.28.1"
+  },
+  "scripts": {
+    "test": "node ./category/category.js && node ./laboratory/laboratory.js"
+  }
+}
