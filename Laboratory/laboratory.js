@@ -8,26 +8,22 @@ import { Login } from '../Login/login.js';
     try {
         await driver.get('https://teste.otica.app/cadastros/clienteseparceiros/laboratorios');
 
-        let registerLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/div[2]/div/div[2]/div[4]/div/div/button/div/span"));
-        registerLaboratory.click();
+        let registerLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/div[2]/div/div[2]/div[4]/div/div/button/div/span")).click();
 
         await driver.sleep(2000);
 
         let descriptionLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div[2]/div/div/div/div[2]/input"));
         descriptionLaboratory.sendKeys("Novo laboratório");
 
-        let integrationLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div[2]/div/div/div[2]/div/div/div/div"));
-        integrationLaboratory.click();
+        let integrationLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div[2]/div/div/div[2]/div/div/div/div")).click();
 
         await driver.sleep(5000);
 
-        let optionIntegration = await driver.findElement(By.xpath("//span[contains(.,'SAO WEB')]"));
-        optionIntegration.click();
+        let optionIntegration = await driver.findElement(By.xpath("//span[contains(.,'SAO WEB')]")).click();
 
         await driver.sleep(5000);
 
-        let saveLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div[2]/div/div/button"));
-        saveLaboratory.click();
+        let saveLaboratory = await driver.findElement(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div[2]/div/div/button")).click();
 
     } catch (error) {
         console.error('Erro: ', error);

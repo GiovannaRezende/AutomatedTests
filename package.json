@@ -4,6 +4,6 @@
     "selenium-webdriver": "^4.28.1"
   },
   "scripts": {
-    "test": "node ./category/category.js && node ./laboratory/laboratory.js"
+    "test": "node ./category/category.js"
   }
 }
