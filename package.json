@@ -1,9 +1,10 @@
 {
   "type": "module",
   "dependencies": {
+    "@faker-js/faker": "^9.5.0",
     "selenium-webdriver": "^4.28.1"
   },
   "scripts": {
-    "test": "node ./doctors/doctors.js"
+    "test": "node ./categories/categories.js && node ./doctors/doctors.js && node ./fitters/fitters.js && node ./laboratories/laboratories.js"
   }
 }

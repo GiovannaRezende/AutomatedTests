@@ -1,8 +1,11 @@
 import { By, until } from 'selenium-webdriver';
 import { Login } from '../Login/login.js';
+import { faker } from '@faker-js/faker';
 
 (async function Doctors() {
     let driver = await Login();
+
+    const crm = faker.number.int();
 
     try {
         await driver.get('https://teste.otica.app/cadastros/clienteseparceiros/medicos');
@@ -11,7 +14,7 @@ import { Login } from '../Login/login.js';
 
         let nameDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div[2]/input")), 2000).sendKeys("Novo médico");
 
-        let crmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[2]/div[2]/input")), 2000).sendKeys("12345");
+        let crmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[2]/div[2]/input")), 2000).sendKeys(crm);
 
         let ufCrmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[3]/div/div/div/div")), 2000).click();
 
@@ -25,7 +28,7 @@ import { Login } from '../Login/login.js';
 
         let searchCepDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/button/div/span")), 2000).click();
 
-        await driver.sleep(5000);
+        await driver.sleep(2000);
 
         let numberDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/input")), 2000).sendKeys("59");
 
