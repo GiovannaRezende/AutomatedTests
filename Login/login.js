@@ -9,8 +9,7 @@ export async function Login() {
 
         await driver.get('https://teste.otica.app/login');
 
-        let acceptCookies = await driver.findElement(By.xpath("//span[contains(.,'ACEITAR TODOS')]"));
-        acceptCookies.click();
+        let acceptCookies = await driver.findElement(By.xpath("//span[contains(.,'ACEITAR TODOS')]")).click();
 
         let cnpjLogin = await driver.findElement(By.xpath("//div[@id='__next']/div/div[2]/div/form/div/div[2]/input"));
         let userLogin = await driver.findElement(By.xpath("//div[@id='__next']/div/div[2]/div/form/div[2]/div[2]/input"));
