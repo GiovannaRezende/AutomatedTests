@@ -5,6 +5,9 @@
     "selenium-webdriver": "^4.28.1"
   },
   "scripts": {
-    "test": "node ./categories/categories.js && node ./doctors/doctors.js && node ./fitters/fitters.js && node ./laboratories/laboratories.js"
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

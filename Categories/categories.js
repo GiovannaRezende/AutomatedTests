@@ -29,7 +29,7 @@ import { faker } from '@faker-js/faker';
 
         let saveCategory = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div[2]/div/div/div/button/div/span")), 2000).click();
 
-        console.log("Categoria cadastrada com sucesso.")
+        console.log("Categoria cadastrada com sucesso.");
 
     } catch (error) {
         console.error('Erro: ', error);
