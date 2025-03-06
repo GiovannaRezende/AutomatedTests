@@ -8,10 +8,6 @@ describe('Acessar o site', () => {
         await driver.get("https://teste.otica.app/login");
     });
 
-    // afterAll(async () => {
-    //     await closeDriver();
-    // });
-
     test('Acessar URL do site', async () => {
         const currentUrl = await driver.getCurrentUrl();
         expect(currentUrl).toBe('https://teste.otica.app/login');

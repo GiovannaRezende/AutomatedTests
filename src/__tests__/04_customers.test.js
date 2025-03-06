@@ -28,12 +28,10 @@ describe('Cadastrar clientes', () => {
         expect(registerCustomer).toBeDefined();
     });
 
-    test('Listar tipos de pessoas do cliente', async () => {
+    test('Selecionar tipo de pessoa do cliente', async () => {
         const listTypeCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div/div/div/div")), 2000).click();
         expect(listTypeCustomer).toBeDefined();
-    });
 
-    test('Selecionar tipo de pessoa do cliente', async () => {
         const selectTypeCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div")), 2000).click();
         expect(selectTypeCustomer).toBeDefined();
     });
@@ -67,12 +65,10 @@ describe('Cadastrar clientes', () => {
         expect(value).toBe("28/07/2004");
     });
 
-    test('Listar sexos dos clientes', async () => {
+    test('Selecionar sexo do cliente', async () => {
         const listGenderCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[4]/div[2]/div/div/div/div")), 2000).click();
         expect(listGenderCustomer).toBeDefined();
-    });
 
-    test('Selecionar sexo do cliente', async () => {
         const selectGenderCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[4]/div[2]/div/div/div[2]/div/div[2]/div/div/div/span")), 2000).click();
         expect(selectGenderCustomer).toBeDefined();
     });
@@ -91,12 +87,10 @@ describe('Cadastrar clientes', () => {
         expect(value).toBe('(11) 9999-9999');
     });
 
-    test('Listar estados civis dos clientes', async () => {
+    test('Selecionar estado civil do cliente', async () => {
         const listCivilStatusCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[6]/div[3]/div/div/div/div")), 2000).click();
         expect(listCivilStatusCustomer).toBeDefined();
-    });
 
-    test('Selecionar estado civil do cliente', async () => {
         const selectCivilStatusCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[6]/div[3]/div/div/div[2]/div/div[2]/div/div/div/span")), 2000).click();
         expect(selectCivilStatusCustomer).toBeDefined();
     });
@@ -108,12 +102,10 @@ describe('Cadastrar clientes', () => {
         expect(value).toBe("Analista de dados");
     });
 
-    test('Listar como nos conheceu dos clientes', async () => {
+    test('Selecionar como nos conheceu do cliente', async () => {
         const listHowFindUsCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[7]/div[2]/div/div/div/div")), 2000).click();
         expect(listHowFindUsCustomer).toBeDefined();
-    });
 
-    test('Selecionar como nos conheceu do cliente', async () => {
         const selectHowFindUsCustomer = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[7]/div[2]/div/div/div[2]/div/div/div/div/div/span")), 2000).click();
         expect(selectHowFindUsCustomer).toBeDefined();
     });

@@ -38,12 +38,10 @@ describe('Cadastrar fornecedores', () => {
         expect(value).toBe(provider);
     });
 
-    test('Listar tipos de pessoas do fornecedor', async () => {
+    test('Selecionar tipo de pessoa do fornecedor', async () => {
         const listTypeProvider = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div")), 2000).click();
         expect(listTypeProvider).toBeDefined();
-    });
-
-    test('Selecionar tipo de pessoa do fornecedor', async () => {
+        
         const selectTypeProvider = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/span")), 2000).click();
         expect(selectTypeProvider).toBeDefined();
     });

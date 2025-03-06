@@ -29,12 +29,10 @@ describe('Cadastrar vendedores', () => {
         expect(value).toBe(seller);
     });
 
-    test('Listar opções de empresas do vendedor', async () => {
+    test('Selecionar empresa do vendedor', async () => {
         const listCompaniesSeller = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div")), 2000).click();
         expect(listCompaniesSeller).toBeDefined();
-    });
-
-    test('Selecionar empresa do vendedor', async () => {
+        
         const selectCompanySeller = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div[6]/div/div/div/span")), 2000).click();
         expect(selectCompanySeller).toBeDefined();
     });

@@ -31,12 +31,10 @@ describe('Cadastrar laboratórios', () => {
         expect(value).toBe(laboratory);
     });
 
-    test('Listar integrações de laboratório', async () => {
+    test('Selecionar integração de laboratório', async () => {
         const listIntegrationLaboratory = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div[2]/div/div/div[2]/div/div/div/div")), 2000).click();
         expect(listIntegrationLaboratory).toBeDefined();
-    });
 
-    test('Selecionar integração de laboratório', async () => {
         const selectIntegrationLaboratory = await driver.wait(until.elementLocated(By.xpath("//span[contains(.,'SAO WEB')]")), 2000).click();
         expect(selectIntegrationLaboratory).toBeDefined();
     });

@@ -42,34 +42,27 @@ describe('Cadastrar usuários', () => {
         expect(allowCompanies).toBeDefined();
     });
 
-    test('Listar empresas padrões', async () => {
+    test('Selecionar empresa padrão', async () => {
         const listStandardCompany = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[3]/div/div/div/div")), 2000).click();
         expect(listStandardCompany).toBeDefined();
-    });
 
-    test('Selecionar empresa padrão', async () => {
         const selectStandardCompany = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[6]/div/div/div/span")), 2000).click();
         expect(selectStandardCompany).toBeDefined();
     });
 
-    test('Listar vendedores do usuário', async () => {
+    test('Selecionar vendedor do usuário', async () => {
         const listSellers = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[4]/div/div/div/div")), 2000).click();
         expect(listSellers).toBeDefined();
-    });
 
-    test('Selecionar vendedor do usuário', async () => {
         const selectSeller = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[3]/div/div/div/span")), 2000).click();
         expect(selectSeller).toBeDefined();
     });
 
     //Não está reconhecendo o campo
-    test('Listar grupos do usuário', async () => {
+    test('Selecionar grupo do usuário', async () => {
         const listUserGroup = await driver.wait(until.elementLocated(By.xpath("")), 2000).click();
         expect(listUserGroup).toBeDefined();
-    });
 
-    //Não está reconhecendo o campo
-    test('Selecionar grupo do usuário', async () => {
         const selectUserGroup = await driver.wait(until.elementLocated(By.xpath("")), 2000).click();
         expect(selectUserGroup).toBeDefined();
     });

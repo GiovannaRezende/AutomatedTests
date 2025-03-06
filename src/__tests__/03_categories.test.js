@@ -26,9 +26,9 @@ describe('Cadastrar categorias', () => {
     });
 
     test('Preencher a descrição da categoria', async () => {
-        let descriptionCategory = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div[2]/input")), 2000).sendKeys("Categoria");
+        let descriptionCategory = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div[2]/input")), 2000).sendKeys(category);
         const value = await descriptionCategory.getAttribute('value');
-        expect(value).toBe("Categoria");
+        expect(value).toBe(category);
     });
 
     test('Listar tipos de categorias', async () => {
