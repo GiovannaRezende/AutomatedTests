@@ -2,25 +2,19 @@ const { By, until } = require('selenium-webdriver');
 const { getDriver, closeDriver } = require('../utils/driver.js');
 const { faker } = require('@faker-js/faker');
 
+
 describe('Cadastrar médicos', () => {
 
     //Verificar se aqui é o melhor lugar para ficar
     const doctor = faker.person.fullName();
     const crm = faker.number.int();
     const email = faker.internet.email();
-    const phone = faker.phone.number();
-    const number = faker.number.int();
 
     let driver;
 
     beforeAll(async () => {
         driver = await getDriver();
     });
-
-    afterAll(async () => {
-        await closeDriver();
-    });
-
 
     test('Acessar a tela de médicos', async () => {
         await driver.get('https://teste.otica.app/cadastros/clienteseparceiros/medicos');
@@ -36,41 +30,46 @@ describe('Cadastrar médicos', () => {
     });
 
     test('Preencher a descrição do médico', async () => {
-        const nameDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div[2]/input")), 2000).sendKeys(doctor);
-        const value = await nameDoctor.getAttribute('value');
+        const nameDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div/div[2]/input")), 2000);
+        await nameDoctor.sendKeys(doctor);
+        const value = await nameDoctor.getAttribute("value");
         expect(value).toBe(doctor);
     });
 
     test('Preencher o CRM do médico', async () => {
-        const crmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[2]/div[2]/input")), 2000).sendKeys(crm);
-        const value = await crmDoctor.getAttribute('value');
-        expect(value).toBe(crm);
+        const crmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[3]/div[2]/input")), 2000);
+        await crmDoctor.sendKeys(crm);
+        const value = await crmDoctor.getAttribute("value");
+        expect(Number(value)).toBe(crm);
     });
 
     test('Selecionar a UF do CRM do médico', async () => {
-        const ufCrmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[3]/div/div/div/div")), 2000).click();
+        const ufCrmDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[4]/div/div/div/div")), 2000).click();
         expect(ufCrmDoctor).toBeDefined();
 
-        optionUfCrm = await driver.wait(until.elementLocated(By.xpath("//span[contains(.,'SP')]")), 2000).click();
+        optionUfCrm = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div/div[4]/div/div/div[2]/div/div/div/div/div/span")), 2000).click();
         expect(ufCrmDoctor).toBeDefined();
     });
 
     test('Preencher o e-mail do médico', async () => {
-        const emailDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div/div[2]/input")), 2000).sendKeys(email);
-        const value = await emailDoctor.getAttribute('value');
+        const emailDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div/div[2]/input")), 2000);
+        await emailDoctor.sendKeys(email);
+        const value = await emailDoctor.getAttribute("value");
         expect(value).toBe(email);
     });
 
     test('Preencher o telefone do médico', async () => {
-        const phoneDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[2]/input")), 2000).sendKeys(phone);
-        const value = await phoneDoctor.getAttribute('value');
-        expect(value).toBe(phone);
+        const phoneDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[2]/input")), 2000);
+        await phoneDoctor.sendKeys("(11) 99999-9999");
+        const value = await phoneDoctor.getAttribute("value");
+        expect(value).toBe("(11) 99999-9999");
 
     });
 
     test('Preencher CEP do médico', async () => {
-        const cepDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div/div/div/div[2]/input")), 2000).sendKeys("05424-020");
-        const value = await cepDoctor.getAttribute('value');
+        const cepDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div/div/div/div[2]/input")), 2000);
+        await cepDoctor.sendKeys("05424-020");
+        const value = await cepDoctor.getAttribute("value");
         expect(value).toBe("05424-020");
 
     });
@@ -81,9 +80,11 @@ describe('Cadastrar médicos', () => {
     });
 
     test('Preencher o número do médico', async () => {
-        const numberDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/input")), 2000).sendKeys(number);
-        const value = await numberDoctor.getAttribute('value');
-        expect(value).toBe(number);
+        await driver.sleep(2000);
+        const numberDoctor = await driver.wait(until.elementLocated(By.xpath("//div[@id='__next']/div/form/div/section[2]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/input")), 2000);
+        await numberDoctor.sendKeys("59");
+        const value = await numberDoctor.getAttribute("value");
+        expect(value).toBe("59");
     });
 
     test('Salvar médico', async () => {
