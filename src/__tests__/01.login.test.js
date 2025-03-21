@@ -13,7 +13,10 @@ describe('Acessar o site', () => {
     test("Acessar URL do site", async () => {
         const currentUrl = await driver.getCurrentUrl();
         expect(currentUrl).toBe("https://teste.otica.app/login");
+
         const acceptCookies = await driver.findElement(By.xpath("//span[contains(.,'ACEITAR TODOS')]")).click();
+        // const cookies = await driver.manage().getCookies();
+        // console.log(cookies);
     });
 
     test("Prencher o campo de CNPJ", async () => {

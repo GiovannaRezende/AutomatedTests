@@ -1,12 +1,21 @@
 const { Builder } = require("selenium-webdriver");
+const chrome = require("selenium-webdriver/chrome");
 
 let driver;
 
 async function getDriver() {
     if (!driver) {
-        driver = await new Builder().forBrowser("chrome").build();
+        const chromeOptions = new chrome.Options();
+        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--window-size=1280,768");
+
+        driver = await new Builder()
+            .forBrowser("chrome")
+            .setChromeOptions(chromeOptions)
+            .build();
+
         await driver.manage().setTimeouts({ implicit: 10000 });
-        await driver.manage().window().setRect({ width: 1280, height: 768 });
     }
     return driver;
 }
@@ -19,4 +28,3 @@ async function closeDriver() {
 }
 
 module.exports = { getDriver, closeDriver };
-
